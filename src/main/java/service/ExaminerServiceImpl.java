@@ -2,6 +2,7 @@ package service;
 
 import com.example.kurs2.Question;
 import exception.NotEnoughQuestions;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

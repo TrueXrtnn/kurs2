@@ -16,7 +16,7 @@ public class JavaQuestionService implements QuestionService {
     private final Set<Question> storage = new HashSet<>();
     private final Random random = new Random();
 
-    public JavaQuestionService(@Qualifier("mathRepository") QuestionRepository repository) {
+    public JavaQuestionService(@Qualifier("javaRepository") QuestionRepository repository) {
         this.repository = repository;
     }
 

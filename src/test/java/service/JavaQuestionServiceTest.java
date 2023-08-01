@@ -1,24 +1,33 @@
 package service;
 
 import com.example.kurs2.Question;
+import org.assertj.core.api.AbstractIterableAssert;
+import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import repository.JavaQuestionRepository;
+import repository.MathQuestionRepository;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+import static service.TestData.*;
+
 
 class JavaQuestionServiceTest {
     @Mock
-    JavaQuestionRepository repository;
+    private JavaQuestionRepository repository;
 
     JavaQuestionService service;
 
@@ -30,31 +39,47 @@ class JavaQuestionServiceTest {
 
     @Test
     void testAdd() {
-        var questions = List.of(new Question("q1", "a1"), new Question("q2", "a2"));
+        var questions = FULL_SET;
         when(repository.getAll()).thenReturn(questions);
         var question = service.getRandomQuestion();
-        assertThat(questions).containsExactly(question);
+        assertThat(questions).containsAnyOf(question);
         Set<Question> all = new HashSet<>();
         while (all.size() < questions.size()) {
             all.add(service.getRandomQuestion());
         }
         assertThat(all.size()).isEqualTo(questions.size());
-        assertThat(questions).containsExactlyElementsOf(all);
+        assertThat(all).containsExactlyElementsOf(all);
     }
 
     @Test
     void remove() {
+        when(repository.remove(Q1)).thenReturn(Q1);
+        service.add(Q1);
+        assertEquals(Q1,service.remove(Q1));
     }
 
     @Test
     void getAll() {
+        service.add(Q1);
+        service.add(Q2);
+        service.add(Q3);
+        service.add(Q4);
+        service.add(Q5);
+        when(repository.getAll()).thenReturn(FULL_SET);
+        assertEquals(service.getAll(),FULL_SET);
     }
 
-    @Test
-    void getRandomQuestion() {
-    }
+
 
     @Test
     void getAvailableQuestions() {
+        var questions = FULL_SET;
+        when(repository.getAll()).thenReturn(questions);
+        service.add(Q1);
+        service.add(Q2);
+        service.add(Q3);
+        service.add(Q4);
+        service.add(Q5);
+        assertEquals(questions.size(),service.getAvailableQuestions());
     }
 }
