@@ -1,4 +1,4 @@
-package service;
+package com.example.kurs2.service;
 
 import com.example.kurs2.Question;
 

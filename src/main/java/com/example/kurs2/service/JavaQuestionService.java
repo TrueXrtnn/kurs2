@@ -1,13 +1,10 @@
-package service;
+package com.example.kurs2.service;
 
 import com.example.kurs2.Question;
-import exception.QuestionUnsupportedOperationException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import repository.JavaQuestionRepository;
-import repository.QuestionRepository;
+import com.example.kurs2.repository.QuestionRepository;
 
-import javax.naming.OperationNotSupportedException;
 import java.util.*;
 
 @Service("javaQuestion")

@@ -1,4 +1,4 @@
-package repository;
+package com.example.kurs2.repository;
 
 import com.example.kurs2.Question;
 

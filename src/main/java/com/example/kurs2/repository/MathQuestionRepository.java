@@ -1,11 +1,11 @@
-package repository;
+package com.example.kurs2.repository;
 
 import com.example.kurs2.Question;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-@Service("javaRepository")
-public class JavaQuestionRepository implements QuestionRepository{
+@Service("matchRepository")
+public class MathQuestionRepository implements QuestionRepository {
     private final Set<Question> storage = new HashSet<>();
     @Override
     public Question add(String question, String answer) {

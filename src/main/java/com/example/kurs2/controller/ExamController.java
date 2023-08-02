@@ -1,11 +1,11 @@
-package controller;
+package com.example.kurs2.controller;
 
 import com.example.kurs2.Question;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import service.ExaminerService;
+import com.example.kurs2.service.ExaminerService;
 
 import java.util.Collection;
 

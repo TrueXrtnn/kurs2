@@ -1,27 +1,20 @@
 package service;
 
 import com.example.kurs2.Question;
-import org.assertj.core.api.AbstractIterableAssert;
-import org.assertj.core.api.Assert;
+import com.example.kurs2.service.JavaQuestionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import repository.JavaQuestionRepository;
-import repository.MathQuestionRepository;
+import com.example.kurs2.repository.JavaQuestionRepository;
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
 import static service.TestData.*;
 
 
